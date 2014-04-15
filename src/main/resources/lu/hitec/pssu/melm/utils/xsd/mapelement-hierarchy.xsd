@@ -1,0 +1,728 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://hitec.lu/pss/xsd/mapelement/hierarchy" xmlns:tns="http://hitec.lu/pss/xsd/mapelement/hierarchy" elementFormDefault="qualified">
+
+  <element name="elements" type="tns:elementsType">
+    <unique name="uids">
+      <selector xpath="*/node" />
+      <field xpath="@unique-code" />
+    </unique>
+  </element>
+
+  <complexType name="elementsType">
+    <annotation>
+      <documentation>Type of the XML document root element</documentation>
+    </annotation>
+    <sequence>
+      <element name="description" type="tns:descriptionType" />
+      <choice>
+        <element name="choice" type="tns:choiceType" />
+      </choice>
+      <element name="extension" type="tns:extensionType" minOccurs="0" maxOccurs="unbounded" />
+    </sequence>
+    <attribute name="version" type="string" use="required" fixed="1.0">
+      <annotation>
+        <documentation>
+          Version of the XSD schema, any valid XML document must carry this fixed value
+        </documentation>
+      </annotation>
+    </attribute>
+  </complexType>
+
+  <complexType name="descriptionType">
+    <annotation>
+      <documentation>
+        Overall description for a mapelement document instance.
+      </documentation>
+    </annotation>
+    <sequence>
+      <element name="library-type" type="tns:libraryType" minOccurs="1">
+        <annotation>
+          <documentation>
+            Type of the mapelement library.
+
+            This field must be used for storing it as description type1 of any
+            map element created from the document, and should hence be rather
+            short to
+            prevent wasting bandwidth.
+          </documentation>
+        </annotation>
+      </element>
+      <element name="library-version" type="tns:versionType" minOccurs="1">
+        <annotation>
+          <documentation>
+            Optional version for the mapelement library.
+          </documentation>
+        </annotation>
+      </element>
+      <element name="library-name" type="tns:uniqueNameType">
+        <annotation>
+          <documentation>
+            Logical name (uniqie reference) of the mapelement library.
+          </documentation>
+        </annotation>
+      </element>
+      <element name="library-display-name" type="tns:longDesc">
+        <annotation>
+          <documentation>
+            Display name of the mapelement library.
+          </documentation>
+        </annotation>
+      </element>
+      <element name="library-icon" type="tns:iconType" minOccurs="0">
+        <annotation>
+          <documentation>
+            Optional display icon for the mapelement library.
+          </documentation>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+
+  <complexType name="choiceType">
+    <annotation>
+      <documentation>
+        Element for a possible choice to make, to go further down in the node structure.
+      </documentation>
+    </annotation>
+    <sequence>
+      <element name="node" type="tns:nodeType" minOccurs="1" maxOccurs="unbounded" />
+    </sequence>
+    <attribute name="choice-var" type="string" use="required">
+      <annotation>
+        <documentation>
+          Description of the choice variable, i.e. a logical summary of
+          the choice values for all contained nodes.
+        </documentation>
+      </annotation>
+    </attribute>
+  </complexType>
+
+  <complexType name="baseNodeType" abstract="true">
+    <annotation>
+      <documentation>
+        Abstract base node type, which defines the common elements for a node in
+        the selection tree.
+      </documentation>
+    </annotation>
+    <sequence>
+      <element name="element" type="tns:nodeElementType" minOccurs="0" maxOccurs="1" />
+      <choice minOccurs="0">
+        <element name="choice" type="tns:choiceType" />
+      </choice>
+    </sequence>
+    <attribute name="hierarchy-code" use="required" type="tns:hierarchyType">
+      <annotation>
+        <documentation>
+          Definition of the hierarchy code for the node. Not required to be unique.
+        </documentation>
+      </annotation>
+    </attribute>
+    <attribute name="unique-code" use="required" type="tns:uniqueNameType">
+      <annotation>
+        <documentation>
+          Unique code to identify the node in the tree. Must be unique among all nodes in a document.
+        </documentation>
+      </annotation>
+    </attribute>
+    <attribute name="description" use="optional" type="tns:longDesc">
+      <annotation>
+        <documentation>
+          Mandatory free-text description for the node.
+        </documentation>
+      </annotation>
+    </attribute>
+  </complexType>
+
+  <complexType name="nodeType">
+    <annotation>
+      <documentation>
+        A node in the selection tree, which represents a certain path from a parent choice
+        element. May optionally provide a further choice to further sub-nodes.
+
+        The node can provide a
+        definition of an element, if the node is a "standalone" node
+        in the selection tree, i.e. if it is not required to traverse to further sub-nodes
+        to make use of the node semantics
+        and create a
+        corresponding map element.
+      </documentation>
+    </annotation>
+    <complexContent>
+      <extension base="tns:baseNodeType">
+        <attribute name="choice-value" use="required" type="tns:shortDesc">
+          <annotation>
+            <documentation>
+              The choice value that is selected by choosing this node
+              in the context of its parent choice element.
+            </documentation>
+          </annotation>
+        </attribute>
+      </extension>
+    </complexContent>
+  </complexType>
+
+  <complexType name="multiNodeType">
+    <annotation>
+      <documentation>
+        A node in the selection tree, which represents a certain path from a parent multi-choice
+        element. May optionally provide a further choice to further sub-nodes.
+
+        The node can provide
+        a definition of an element, if the node is a "standalone" node
+        in the selection tree, i.e. if it is not required to traverse to further sub-nodes
+        to make use of the node semantics
+        and create a
+        corresponding map element.
+
+        Note that a multiNode needs to have exactly as many choice-values defined as the
+        parent multi-select node defines choice-variables.
+      </documentation>
+    </annotation>
+    <complexContent>
+      <extension base="tns:baseNodeType">
+        <attribute name="choice1-value" use="required" type="string">
+          <annotation>
+            <documentation>
+              The first choice value that is selected by choosing this node
+              in the context of its parent choice element.
+            </documentation>
+          </annotation>
+        </attribute>
+        <attribute name="choice2-value" use="required" type="string">
+          <annotation>
+            <documentation>
+              The second choice value that is selected by choosing this node
+              in the context of its parent choice element.
+            </documentation>
+          </annotation>
+        </attribute>
+        <attribute name="choice3-value" use="optional" type="string">
+          <annotation>
+            <documentation>
+              The (optional) third choice value that is selected by choosing this node
+              in the context of its parent choice element.
+            </documentation>
+          </annotation>
+        </attribute>
+        <attribute name="choice4-value" use="optional" type="string">
+          <annotation>
+            <documentation>
+              The (optional) fourth choice value that is selected by choosing this node
+              in the context of its parent choice element.
+            </documentation>
+          </annotation>
+        </attribute>
+        <attribute name="choice5-value" use="optional" type="string">
+          <annotation>
+            <documentation>
+              The (optional) fifth choice value that is selected by choosing this node
+              in the context of its parent choice element.
+            </documentation>
+          </annotation>
+        </attribute>
+      </extension>
+    </complexContent>
+  </complexType>
+
+  <complexType name="nodeElementType">
+    <annotation>
+      <documentation>
+        Detailde description about a given node that is considered to
+        be a 'standalone' node in the selection tree, i.e. that allows
+        creation of an actual instance of a map element.
+
+        The
+        actual map element type of this node is define by it's
+        child element, which also provides further configuration
+        parameters depending on the shape.
+      </documentation>
+    </annotation>
+    <sequence>
+      <element name="extension" type="tns:elementExtensionRefType" minOccurs="0" maxOccurs="1" />
+      <choice>
+        <element name="point" type="tns:pointType" />
+        <element name="line" type="tns:lineType" />
+        <element name="area" type="tns:areaType" />
+      </choice>
+      <element name="customProperty" type="tns:customProperty" minOccurs="0" maxOccurs="unbounded" />
+    </sequence>
+    <attribute name="description" use="optional" type="string">
+      <annotation>
+        <documentation>
+          Further free-text description for the element.
+        </documentation>
+      </annotation>
+    </attribute>
+  </complexType>
+
+  <complexType name="elementExtensionRefType">
+    <annotation>
+      <documentation>
+        Defines a reference to an extension for a certain node element.
+        The actual definition of the extension is defined on the top-level
+        extension elements, right below the root XML
+        elements node.
+
+        A configured extension for a node is optional by default,
+        but may be marked as mandatory as well.
+      </documentation>
+    </annotation>
+    <attribute name="ref" use="required" type="tns:extensionRef">
+      <annotation>
+        <documentation>
+          The reference to the actual extension definition.
+        </documentation>
+      </annotation>
+    </attribute>
+    <attribute name="mandatory" use="optional" type="boolean" default="false">
+      <annotation>
+        <documentation>
+          Defines if the extension is mandatory or optional to be used
+          for the node that it is attached to.
+        </documentation>
+      </annotation>
+    </attribute>
+  </complexType>
+
+  <complexType name="pointType">
+    <annotation>
+      <documentation>
+        Defines details for a "POINT" map element.
+      </documentation>
+    </annotation>
+    <sequence>
+      <element name="icon" type="tns:iconType" />
+    </sequence>
+    <attribute name="supports-extent" use="optional" type="boolean" default="false">
+      <annotation>
+        <documentation>
+          Defines if elements of this type support the definition
+          of an 'extent' property or not. False by default.
+        </documentation>
+      </annotation>
+    </attribute>
+    <attribute name="supports-orientation" use="optional" type="boolean" default="false">
+      <annotation>
+        <documentation>
+          Defines if elements of this node type support the definition
+          of an 'orientation' property or not. False by default.
+        </documentation>
+      </annotation>
+    </attribute>
+  </complexType>
+
+  <complexType name="lineType">
+    <annotation>
+      <documentation>
+        Defines details for a "POLYLINE" map element.
+      </documentation>
+    </annotation>
+    <sequence>
+      <element name="perimeter-rendering" type="tns:perimeterRenderingType" />
+      <element name="icon" type="tns:iconType" />
+    </sequence>
+    <attribute name="supports-extent" use="optional" type="boolean" default="false">
+      <annotation>
+        <documentation>
+          Defines if elements of this type support the definition
+          of an 'extent' property or not. False by default.
+        </documentation>
+      </annotation>
+    </attribute>
+  </complexType>
+
+  <complexType name="areaType">
+    <annotation>
+      <documentation>
+        Defines details for a "POLYGON" map element.
+      </documentation>
+    </annotation>
+    <sequence>
+      <element name="perimeter-rendering" type="tns:perimeterRenderingType" />
+      <element name="surface-rendering" type="tns:surfaceRenderingType" />
+      <element name="icon" type="tns:iconType" />
+    </sequence>
+    <attribute name="supports-extent" use="optional" type="boolean" default="false">
+      <annotation>
+        <documentation>
+          Defines if elements of this type support the definition
+          of an 'extent' property or not. False by default.
+        </documentation>
+      </annotation>
+    </attribute>
+  </complexType>
+
+  <complexType name="perimeterRenderingType">
+    <annotation>
+      <documentation>
+        Rendering properties for the perimeter of a line or area element.
+      </documentation>
+    </annotation>
+    <sequence>
+      <element name="line-point-icon" type="tns:iconType" minOccurs="0">
+        <annotation>
+          <documentation>Optional icon to put on all perimeter points.</documentation>
+        </annotation>
+      </element>
+      <element name="line-start-icon" type="tns:iconType" minOccurs="0">
+        <annotation>
+          <documentation>
+            Optional icon to put on the perimeter start point.
+            Overrides a defined line-point-icon for the start point.
+          </documentation>
+        </annotation>
+      </element>
+      <element name="line-end-icon" type="tns:iconType" minOccurs="0">
+        <annotation>
+          <documentation>
+            Optional icon to put on the perimeter end point.
+            Overrides a defined line-point-icon for the end point.
+          </documentation>
+        </annotation>
+      </element>
+      <element name="segment-icon" type="tns:iconType" minOccurs="0">
+        <annotation>
+          <documentation>Optional icon to place on the center of every perimeter segment.</documentation>
+        </annotation>
+      </element>
+    </sequence>
+    <attribute name="line-style" type="tns:lineStyleType" use="optional" default="solid">
+      <annotation>
+        <documentation>
+          Line style for drawing perimeter lines, defaults to a solid line.
+        </documentation>
+      </annotation>
+    </attribute>
+    <attribute name="line-width" type="tns:lineWidthType" use="optional" default="1">
+      <annotation>
+        <documentation>
+          Line width for drawing perimeter lines, defaults to 1 px.
+        </documentation>
+      </annotation>
+    </attribute>
+    <attribute name="line-color" type="tns:colorType" use="optional" default="000000">
+      <annotation>
+        <documentation>
+          Color to use for drawing perimeter lines, defaults to black.
+        </documentation>
+      </annotation>
+    </attribute>
+    <attribute name="line-opacity" type="tns:opacityType" use="optional" default="1">
+      <annotation>
+        <documentation>
+          Opacity for drawing perimeter lines. Defaults to one,
+          so that the lines are fully visible by default.
+        </documentation>
+      </annotation>
+    </attribute>
+  </complexType>
+
+  <complexType name="surfaceRenderingType">
+    <annotation>
+      <documentation>
+        Rendering properties for the surface of an area element.
+      </documentation>
+    </annotation>
+    <sequence>
+      <element name="center-icon" type="tns:iconType" minOccurs="0" />
+    </sequence>
+    <attribute name="fill-color" type="tns:colorType" use="optional" default="000000">
+      <annotation>
+        <documentation>
+          Color to use for filling the area element. Defaults to black.
+        </documentation>
+      </annotation>
+    </attribute>
+    <attribute name="fill-opacity" type="tns:opacityType" use="optional" default="0">
+      <annotation>
+        <documentation>
+          Opacity for filling the area. Defaults to zero, meaning that the area
+          is not filled unless the opacity is defined differently.
+        </documentation>
+      </annotation>
+    </attribute>
+  </complexType>
+
+  <complexType name="iconType">
+    <annotation>
+      <documentation>
+        Defines a reference to a graphical icon.
+      </documentation>
+    </annotation>
+    <attribute name="file" use="required" type="string">
+      <annotation>
+        <documentation>
+          Filename of the icon file.
+
+          Any path in the filename should generally be interpreted relative
+          to the location of the XML file.
+        </documentation>
+      </annotation>
+    </attribute>
+    <attribute name="anchor" use="optional" default="CENTER" type="tns:anchorType">
+      <annotation>
+        <documentation>
+          Optional anchor for placing the icon, relative to a point or shape it belongs to.
+
+          An icon that is attached to a point with an anchor of W (West) must hence
+          be placed on the left
+          side of the point, so that the right side of the icon touches
+          the point at its center.
+        </documentation>
+      </annotation>
+    </attribute>
+  </complexType>
+
+  <complexType name="extensionType">
+    <annotation>
+      <documentation>
+        Allows the definition of an extension to the node elements of the document.
+
+        An extension basically allows for an additional choice on the node elements.
+      </documentation>
+    </annotation>
+    <sequence>
+      <element name="option" type="tns:extensionOptionType" minOccurs="1" maxOccurs="unbounded" />
+    </sequence>
+    <attribute name="id" use="required" type="tns:extensionId">
+      <annotation>
+        <documentation>
+          Unique id for the extension.
+        </documentation>
+      </annotation>
+    </attribute>
+    <attribute name="extension-var" type="string" use="required">
+      <annotation>
+        <documentation>
+          Description of the variable to choose for the extension,
+          i.e. a logical summary of all contained option values.
+        </documentation>
+      </annotation>
+    </attribute>
+  </complexType>
+
+  <complexType name="extensionOptionType">
+    <annotation>
+      <documentation>
+        Represents one specific option of a parent extension element.
+      </documentation>
+    </annotation>
+    <sequence>
+      <element name="overlay-icon" type="tns:iconType" />
+    </sequence>
+    <attribute name="extension-value" use="required" type="string">
+      <annotation>
+        <documentation>
+          The extension value that is selected by choosing this option
+          in the context of its parent extension element.
+        </documentation>
+      </annotation>
+    </attribute>
+    <attribute name="option-code" use="required" type="string">
+      <annotation>
+        <documentation>
+          Code to identify this option, which must be unique among all
+          option elements of an extension definition.
+
+          If an extension is used for a concrete map element, the value of this
+          field must be used for storing it as description type3. Because of this,
+          the value should be rather short to prevent wasting
+          bandwidth.
+        </documentation>
+      </annotation>
+    </attribute>
+    <attribute name="description" use="optional" type="string">
+      <annotation>
+        <documentation>
+          Optional free-text description for the option.
+        </documentation>
+      </annotation>
+    </attribute>
+  </complexType>
+
+  <simpleType name="extensionId">
+    <restriction base="ID">
+      <pattern value="ext-.*" />
+    </restriction>
+  </simpleType>
+
+  <simpleType name="extensionRef">
+    <restriction base="IDREF">
+      <pattern value="ext-.*" />
+    </restriction>
+  </simpleType>
+
+  <simpleType name="anchorType">
+    <annotation>
+      <documentation>
+        Type for possible anchor values, for relative positioning of elements.
+      </documentation>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="CENTER" />
+      <enumeration value="N" />
+      <enumeration value="NE" />
+      <enumeration value="E" />
+      <enumeration value="SE" />
+      <enumeration value="S" />
+      <enumeration value="SW" />
+      <enumeration value="W" />
+      <enumeration value="NW" />
+    </restriction>
+  </simpleType>
+
+  <simpleType name="colorType">
+    <annotation>
+      <documentation>
+        Definition of a hex color, as used in HTML/CSS color codes.
+        Represented by a 6-digit hex code, with three color values (RGB) in range 0-255.
+      </documentation>
+    </annotation>
+    <restriction base="string">
+      <pattern value="([A-Fa-f]|[0-9]){6}" />
+    </restriction>
+  </simpleType>
+
+  <simpleType name="hierarchyType">
+    <annotation>
+      <documentation>
+        The library-version should be composed by [int].[int]
+      </documentation>
+    </annotation>
+    <restriction base="string">
+      <pattern value="[0-9.]{3,7}" />
+    </restriction>
+  </simpleType>
+  
+  <simpleType name="versionType">
+    <annotation>
+      <documentation>
+        The library-version should be composed by [int].[int]
+      </documentation>
+    </annotation>
+    <restriction base="string">
+      <pattern value="[0-9]*\.[0-9]*" />
+    </restriction>
+  </simpleType>
+
+  <simpleType name="uniqueNameType">
+    <annotation>
+      <documentation>
+        The library-name should be a string without "spaces" size between 3 and 20
+      </documentation>
+    </annotation>
+    <restriction base="string">
+      <pattern value="([-A-Za-z_.]){3,40}" />
+    </restriction>
+  </simpleType>
+
+  <simpleType name="shortDesc">
+    <annotation>
+      <documentation>
+        The library-name should be a string without "spaces" size between 3 and 40
+      </documentation>
+    </annotation>
+    <restriction base="string">
+      <pattern value="(.){3,40}" />
+    </restriction>
+  </simpleType>
+
+  <simpleType name="longDesc">
+    <annotation>
+      <documentation>
+        The library-name should be a string without "spaces" size between 3 and 70
+      </documentation>
+    </annotation>
+    <restriction base="string">
+      <pattern value=".{3,70}" />
+    </restriction>
+  </simpleType>
+
+  <simpleType name="opacityType">
+    <annotation>
+      <documentation>
+        Definition of an opacity value, as a float value in range [0-1].
+        A value of zero is fully transparent, while a value of one is fully opaque.
+      </documentation>
+    </annotation>
+    <restriction base="float">
+      <minInclusive value="0" />
+      <maxInclusive value="1" />
+    </restriction>
+  </simpleType>
+
+  <simpleType name="lineWidthType">
+    <annotation>
+      <documentation>
+        Definition of acceptable line width values, in pixel.
+        Valid values are in range [1,100].
+      </documentation>
+    </annotation>
+    <restriction base="integer">
+      <minInclusive value="1" />
+      <maxInclusive value="100" />
+    </restriction>
+  </simpleType>
+
+  <simpleType name="lineStyleType">
+    <annotation>
+      <documentation>
+        Definition of possible line styles to draw a line.
+      </documentation>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="none" />
+      <enumeration value="solid" />
+      <enumeration value="dotted" />
+      <enumeration value="dashed" />
+    </restriction>
+  </simpleType>
+
+  <simpleType name="libraryType">
+    <annotation>
+      <documentation>
+        Definition of possible line styles to draw a line.
+      </documentation>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="points" />
+      <enumeration value="lines" />
+      <enumeration value="areas" />
+    </restriction>
+  </simpleType>
+
+  <complexType name="customProperty">
+    <annotation>
+      <documentation>
+        Defines details for a n element custom property
+      </documentation>
+    </annotation>
+    <attribute name="key" use="required" type="string">
+      <annotation>
+        <documentation>
+          Defines the key of the key, value pair
+        </documentation>
+      </annotation>
+    </attribute>
+    <attribute name="type" use="required" type="tns:customPropertyType">
+      <annotation>
+        <documentation>
+          Defines the type of the value (String, date, integer ...)
+        </documentation>
+      </annotation>
+    </attribute>
+  </complexType>
+  
+  <simpleType name="customPropertyType">
+    <annotation>
+      <documentation>
+        Definition of possible line styles to draw a line.
+      </documentation>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="string" />
+      <enumeration value="date" />
+      <enumeration value="integer" />
+    </restriction>
+  </simpleType>
+</schema>

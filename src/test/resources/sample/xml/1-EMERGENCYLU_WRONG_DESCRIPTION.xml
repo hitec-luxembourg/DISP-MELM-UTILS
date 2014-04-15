@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elements xmlns="http://hitec.lu/pss/xsd/mapelement/hierarchy" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hitec.lu/pss/xsd/mapelement/hierarchy mapelement-hierarchy.xsd"
+  version="1.0">
+  <description>
+    <library-type>points</library-type>
+    <library-version>1.0</library-version>
+    <library-name>emergency.lu</library-name>
+    <library-display-name>Points(E.lu)</library-display-name>
+    <library-icon file="SymbolsPOI/POI.png" />
+  </description>
+  <choice choice-var="Type">
+    <!-- Points -->
+    <node hierarchy-code="1.1" unique-code="Accident" choice-value="Accident" description="tw">
+      <element description="Accident">
+        <point>
+          <icon file="SymbolsPOI/Accident.png" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.1" unique-code="Accomodation" choice-value="Accomodation" description="Accomodation">
+      <element description="Accomodation">
+        <point>
+          <icon file="SymbolsPOI/Accomodation.png" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.1" unique-code="Airplane" choice-value="Airplane" description="Airplane">
+      <element description="Airplane">
+        <point>
+          <icon file="SymbolsPOI/Airplane.png" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.1" unique-code="Aviation" choice-value="Aviation" description="Aviation">
+      <element description="Aviation">
+        <point>
+          <icon file="SymbolsPOI/Aviation.png" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.1" unique-code="BridgeDown" choice-value="Bridge Down" description="Bridge Down">
+      <element description="Bridge Down">
+        <point>
+          <icon file="SymbolsPOI/BridgeDown.png" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.1" unique-code="CarRepairRefuel" choice-value="Repair and refuel" description="Repair and refuel">
+      <element description="Repair and refuel">
+        <point>
+          <icon file="SymbolsPOI/CarRepairRefuel.png" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.1" unique-code="CarRepairRefuel" choice-value="Repair and refuel" description="Repair and refuel">
+      <element description="Repair and refuel">
+        <point>
+          <icon file="SymbolsPOI/CarRepairRefuel.png" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.1" unique-code="CommunicationRoom" choice-value="Communication room" description="Communication room">
+      <element description="Communication room">
+        <point>
+          <icon file="SymbolsPOI/CommunicationRoom.png" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.1" unique-code="CommunicationTower" choice-value="Communication tower" description="Communication tower">
+      <element description="Communication tower">
+        <point>
+          <icon file="SymbolsPOI/CommunicationTower.png" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.1" unique-code="ControlPoint" choice-value="Control point" description="Control point">
+      <element description="Control point">
+        <point>
+          <icon file="SymbolsPOI/ControlPoint.png" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.1" unique-code="Defence" choice-value="Defence" description="Defence">
+      <element description="Defence">
+        <point>
+          <icon file="SymbolsPOI/Defence.png" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.1" unique-code="Education" choice-value="Education" description="Education">
+      <element description="Education">
+        <point>
+          <icon file="SymbolsPOI/Education.png" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.1" unique-code="Fire" choice-value="Fire" description="Fire">
+      <element description="Fire">
+        <point>
+          <icon file="SymbolsPOI/Fire.png" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.1" unique-code="Firearm" choice-value="Firearm" description="Firearm">
+      <element description="Firearm">
+        <point>
+          <icon file="SymbolsPOI/Firearm.png" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.1" unique-code="GovernmentalAgencies" choice-value="Governmental agency" description="Governmental agency">
+      <element description="Governmental agency">
+        <point>
+          <icon file="SymbolsPOI/GovernmentalAgencies.png" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.1" unique-code="Health" choice-value="Health" description="Health">
+      <element description="Health">
+        <point>
+          <icon file="SymbolsPOI/Health.png" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.1" unique-code="Industry" choice-value="Industry" description="Industry">
+      <element description="Industry">
+        <point>
+          <icon file="SymbolsPOI/Industry.png" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.1" unique-code="Ngo" choice-value="NGO Office" description="NGO Office">
+      <element description="NGO Office">
+        <point>
+          <icon file="SymbolsPOI/Ngo.png" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.1" unique-code="Ocha" choice-value="OCHA Office" description="OCHA Office">
+      <element description="OCHA Office">
+        <point>
+          <icon file="SymbolsPOI/Ocha.png" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.1" unique-code="OtherOffice" choice-value="Other Office" description="Other Office">
+      <element description="Other Office">
+        <point>
+          <icon file="SymbolsPOI/OtherOffice.png" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.1" unique-code="PlacesOfWorship" choice-value="Places of worship" description="Places of worship">
+      <element description="Places of worship">
+        <point>
+          <icon file="SymbolsPOI/PlacesOfWorship.png" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.1" unique-code="Police" choice-value="Police" description="Police">
+      <element description="Police">
+        <point>
+          <icon file="SymbolsPOI/Police.png" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.1" unique-code="Port" choice-value="Port" description="Port">
+      <element description="Port">
+        <point>
+          <icon file="SymbolsPOI/Port.png" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.1" unique-code="Rail" choice-value="Rail" description="Rail">
+      <element description="Rail">
+        <point>
+          <icon file="SymbolsPOI/Rail.png" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.1" unique-code="Refugees" choice-value="Refugees" description="Refugees">
+      <element description="Refugees">
+        <point>
+          <icon file="SymbolsPOI/Refugees.png" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.1" unique-code="Retail" choice-value="Retail" description="Retail">
+      <element description="Retail">
+        <point>
+          <icon file="SymbolsPOI/Retail.png" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.1" unique-code="Roadblock" choice-value="Roadblock" description="Roadblock">
+      <element description="Roadblock">
+        <point>
+          <icon file="SymbolsPOI/Roadblock.png" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.1" unique-code="Shipping" choice-value="Shipping" description="Shipping">
+      <element description="Shipping">
+        <point>
+          <icon file="SymbolsPOI/Shipping.png" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.1" unique-code="Storage" choice-value="Storage" description="Storage">
+      <element description="Storage">
+        <point>
+          <icon file="SymbolsPOI/Storage.png" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.1" unique-code="Unhcr" choice-value="UNHCR Office" description="UNHCR Office">
+      <element description="UNHCR Office">
+        <point>
+          <icon file="SymbolsPOI/Unhcr.png" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.1" unique-code="Unicef" choice-value="UNICEF Office" description="UNICEF Office">
+      <element description="UNICEF Office">
+        <point>
+          <icon file="SymbolsPOI/Unicef.png" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.1" unique-code="Wfp" choice-value="WFP Office" description="WFP Office">
+      <element description="WFP Office">
+        <point>
+          <icon file="SymbolsPOI/Wfp.png" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.1" unique-code="Who" choice-value="WHO Office" description="WHO Office">
+      <element description="WHO Office">
+        <point>
+          <icon file="SymbolsPOI/Who.png" anchor="NE" />
+        </point>
+      </element>
+    </node>
+
+  </choice>
+</elements>

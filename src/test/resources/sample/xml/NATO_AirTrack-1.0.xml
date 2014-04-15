@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="windows-1250"?>
+<elements xmlns="http://hitec.lu/pss/xsd/mapelement/hierarchy" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hitec.lu/pss/xsd/mapelement/hierarchy mapelement-hierarchy.xsd"
+  version="1.0">
+  <description>
+    <library-type>points</library-type>
+    <library-version>1.0</library-version>
+    <library-name>NATO_AirTrack</library-name>
+    <library-display-name>NATO_AirTrack</library-display-name>
+    <library-icon file="mission.png" />
+  </description>
+  <choice choice-var="Type">
+    <node hierarchy-code="1.1" unique-code="SUAPMF----_____" choice-value="AT_Present_Unknown_FIXED_WING" description="AT_Present_Unknown_FIXED_WING">
+      <element description="cluster CCCM">
+        <point>
+          <icon file="SUAPMF----#####" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.2" unique-code="SUAPMH----_____" choice-value="AT_Present_Unknown_ROTARY_WING" description="AT_Present_Unknown_ROTARY_WING">
+      <element description="cluster CCCM">
+        <point>
+          <icon file="SUAPMH----#####" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.3" unique-code="SUAPML----_____" choice-value="AT_Present_Unknown_LIGHTER_THAN AIR" description="AT_Present_Unknown_LIGHTER_THAN_AIR">
+      <element description="cluster CCCM">
+        <point>
+          <icon file="SUAPML----#####" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.4" unique-code="SUAPWM----_____" choice-value="AT_Present_Unknown_MISSILE" description="AT_Present_Unknown_MISSILE">
+      <element description="cluster CCCM">
+        <point>
+          <icon file="SUAPWM----#####" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.5" unique-code="SUAPWD----_____" choice-value="AT_Present_Unknown_DECOY" description="AT_Present_Unknown_DECOY">
+      <element description="cluster CCCM">
+        <point>
+          <icon file="SUAPWD----#####" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.6" unique-code="SUAPCF----_____" choice-value="AT_Present_Unknown_FIXED_WING" description="AT_Present_Unknown_FIXED_WING">
+      <element description="cluster CCCM">
+        <point>
+          <icon file="SUAPCF----#####" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.7" unique-code="SUAPCH----_____" choice-value="AT_Present_Unknown_ROTARY_WING" description="AT_Present_Unknown_ROTARY_WING">
+      <element description="cluster CCCM">
+        <point>
+          <icon file="SUAPCH----#####" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.8" unique-code="SUAPCL----_____" choice-value="AT_Present_Unknown_LIGHTER_THAN_AIR" description="AT_Present_Unknown_LIGHTER_THAN_AIR">
+      <element description="cluster CCCM">
+        <point>
+          <icon file="SUAPCL----#####" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    
+    <node hierarchy-code="1.9" unique-code="SFAPMF----_____" choice-value="AT_Present_Friend_FIXED_WING" description="AT_Present_Friend_FIXED_WING">
+      <element description="cluster CCCM">
+        <point>
+          <icon file="SFAPMF----#####" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.10" unique-code="SFAPMH----_____" choice-value="AT_Present_Friend_ROTARY_WING" description="AT_Present_Friend_ROTARY_WING">
+      <element description="cluster CCCM">
+        <point>
+          <icon file="SFAPMH----#####" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.11" unique-code="SFAPML----_____" choice-value="AT_Present_Friend_LIGHTER_THAN_AIR" description="AT_Present_Friend_LIGHTER_THAN_AIR">
+      <element description="cluster CCCM">
+        <point>
+          <icon file="SFAPML----#####" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.12" unique-code="SFAPWM----_____" choice-value="AT_Present_Friend_MISSILE" description="AT_Present_Friend_MISSILE">
+      <element description="cluster CCCM">
+        <point>
+          <icon file="SFAPWM----#####" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.13" unique-code="SFAPWD----_____" choice-value="AT_Present_Friend_DECOY" description="AT_Present_Friend_DECOY">
+      <element description="cluster CCCM">
+        <point>
+          <icon file="SFAPWD----#####" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.14" unique-code="SFAPCF----_____" choice-value="AT_Present_Friend_FIXED_WING" description="AT_Present_Friend_FIXED_WING">
+      <element description="cluster CCCM">
+        <point>
+          <icon file="SFAPCF----#####" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.15" unique-code="SFAPCH----_____" choice-value="AT_Present_Friend_ROTARY_WING" description="AT_Present_Friend_ROTARY_WING">
+      <element description="cluster CCCM">
+        <point>
+          <icon file="SFAPCH----#####" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.16" unique-code="SFAPCL----_____" choice-value="AT_Present_Friend_LIGHTER_THAN_AIR" description="AT_Present_Friend_LIGHTER_THAN_AIR">
+      <element description="cluster CCCM">
+        <point>
+          <icon file="SFAPCL----#####" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.17" unique-code="SNAPMF----_____" choice-value="AT_Present_Neutral_FIXED_WING" description="AT_Present_Neutral_FIXED_WING">
+      <element description="cluster CCCM">
+        <point>
+          <icon file="SNAPMF----#####" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.18" unique-code="SNAPMH----_____" choice-value="AT_Present_Neutral_ROTARY_WING" description="AT_Present_Neutral_ROTARY_WING">
+      <element description="cluster CCCM">
+        <point>
+          <icon file="SNAPMH----#####" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    
+    <node hierarchy-code="1.19" unique-code="SNAPML----_____" choice-value="AT_Present_Neutral_LIGHTER_THAN_AIR" description="AT_Present_Neutral_LIGHTER_THAN_AIR">
+      <element description="cluster CCCM">
+        <point>
+          <icon file="SNAPML----#####" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.20" unique-code="SNAPWM----_____" choice-value="AT_Present_Neutral_MISSILE" description="AT_Present_Neutral_MISSILE">
+      <element description="cluster CCCM">
+        <point>
+          <icon file="SNAPWM----#####" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.21" unique-code="SNAPWD----_____" choice-value="AT_Present_Neutral_DECOY" description="AT_Present_Neutral_DECOY">
+      <element description="cluster CCCM">
+        <point>
+          <icon file="SNAPWD----#####" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.22" unique-code="SNAPCF----_____" choice-value="AT_Present_Neutral_FIXED_WING" description="AT_Present_Neutral_FIXED_WING">
+      <element description="cluster CCCM">
+        <point>
+          <icon file="SNAPCF----#####" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.23" unique-code="SNAPCH----_____" choice-value="AT_Present_Neutral_ROTARY_WING" description="AT_Present_Neutral_ROTARY_WING">
+      <element description="cluster CCCM">
+        <point>
+          <icon file="SNAPCH----#####" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.24" unique-code="SNAPCL----_____" choice-value="AT_Present_Neutral_LIGHTER_THAN_AIR" description="AT_Present_Neutral_LIGHTER_THAN_AIR">
+      <element description="cluster CCCM">
+        <point>
+          <icon file="SNAPCL----#####" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.25" unique-code="SHAPMF----_____" choice-value="AT_Present_Hostile_FIXED_WING" description="AT_Present_Hostile_FIXED_WING">
+      <element description="cluster CCCM">
+        <point>
+          <icon file="SHAPMF----#####" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.26" unique-code="SHAPMH----_____" choice-value="AT_Present_Hostile_ROTARY_WING" description="AT_Present_Hostile_ROTARY_WING">
+      <element description="cluster CCCM">
+        <point>
+          <icon file="SHAPMH----#####" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.27" unique-code="SHAPML----_____" choice-value="AT_Present_Hostile_LIGHTER_THAN_AIR" description="AT_Present_Hostile_LIGHTER_THAN_AIR">
+      <element description="cluster CCCM">
+        <point>
+          <icon file="SHAPML----#####" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.28" unique-code="SHAPWM----_____" choice-value="AT_Present_Hostile_MISSILE" description="AT_Present_Hostile_MISSILE">
+      <element description="cluster CCCM">
+        <point>
+          <icon file="SHAPWM----#####" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.29" unique-code="SHAPWD----_____" choice-value="AT_Present_Hostile_DECOY" description="AT_Present_Hostile_DECOY">
+      <element description="cluster CCCM">
+        <point>
+          <icon file="SHAPWD----#####" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.30" unique-code="SHAPCF----_____" choice-value="AT_Present_Hostile_FIXED_WING" description="AT_Present_Hostile_FIXED_WING">
+      <element description="cluster CCCM">
+        <point>
+          <icon file="SHAPCF----#####" anchor="NE" />
+        </point>
+      </element>
+    </node>
+  </choice>
+</elements>

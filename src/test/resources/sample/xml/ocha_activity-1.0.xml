@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<elements xmlns="http://hitec.lu/pss/xsd/mapelement/hierarchy"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://hitec.lu/pss/xsd/mapelement/hierarchy mapelement-hierarchy.xsd"
+  version="1.0">
+  <description>
+    <library-type>points</library-type>
+	<library-version>1.0</library-version>
+	<library-name>ocha_activity</library-name>
+	<library-display-name>OCHA Humanitarian - Activity</library-display-name>
+    <library-icon file="activity_ocha.png" />
+  </description>
+  <choice choice-var="Type">
+    <node hierarchy-code="1.3" unique-code="activity-advocacy" choice-value="activity-advocacy" description="activity advocacy">
+      <element description="activity advocacy">
+        <point>
+          <icon file="advocacy" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.11" unique-code="activity-analysis" choice-value="activity-analysis" description="activity analysis">
+      <element description="activity analysis">
+        <point>
+          <icon file="analysis" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.19" unique-code="activity-assessment" choice-value="activity-assessment" description="activity assessment">
+      <element description="activity assessment">
+        <point>
+          <icon file="assessment" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.27" unique-code="activity-civil_military_coordination" choice-value="activity-civil military coordination" description="activity civil military coordination">
+      <element description="activity civil military coordination">
+        <point>
+          <icon file="civil_military_coordination" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.35" unique-code="activity-coordinated_assessment" choice-value="activity-coordinated assessment" description="activity coordinated assessment">
+      <element description="activity coordinated assessment">
+        <point>
+          <icon file="coordinated_assessment" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.43" unique-code="activity-deployment" choice-value="activity-deployment" description="activity deployment">
+      <element description="activity deployment">
+        <point>
+          <icon file="deployment" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.51" unique-code="activity-financing" choice-value="activity-financing" description="activity financing">
+      <element description="activity financing">
+        <point>
+          <icon file="financing" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.59" unique-code="activity-fund" choice-value="activity-fund" description="activity fund">
+      <element description="activity fund">
+        <point>
+          <icon file="fund" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.67" unique-code="activity-gap_analysis" choice-value="activity-gap analysis" description="activity gap analysis">
+      <element description="activity gap analysis">
+        <point>
+          <icon file="gap_analysis" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.75" unique-code="activity-humanitarian_programme_cycle" choice-value="activity-humanitarian programme cycle" description="activity humanitarian programme cycle">
+      <element description="activity humanitarian programme cycle">
+        <point>
+          <icon file="humanitarian_programme_cycle" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.83" unique-code="activity-information_management" choice-value="activity-information management" description="activity information management">
+      <element description="activity information management">
+        <point>
+          <icon file="information_management" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.91" unique-code="activity-information_technology" choice-value="activity-information technology" description="activity information technology">
+      <element description="activity information technology">
+        <point>
+          <icon file="information_technology" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.99" unique-code="activity-innovation" choice-value="activity-innovation" description="activity innovation">
+      <element description="activity innovation">
+        <point>
+          <icon file="innovation" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.107" unique-code="activity-leadership" choice-value="activity-leadership" description="activity leadership">
+      <element description="activity leadership">
+        <point>
+          <icon file="leadership" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.115" unique-code="activity-learning" choice-value="activity-learning" description="activity learning">
+      <element description="activity learning">
+        <point>
+          <icon file="learning" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.123" unique-code="activity-meeting" choice-value="activity-meeting" description="activity meeting">
+      <element description="activity meeting">
+        <point>
+          <icon file="meeting" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.131" unique-code="activity-needs_assessment" choice-value="activity-needs assessment" description="activity needs assessment">
+      <element description="activity needs assessment">
+        <point>
+          <icon file="needs_assessment" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.139" unique-code="activity-partnership" choice-value="activity-partnership" description="activity partnership">
+      <element description="activity partnership">
+        <point>
+          <icon file="partnership" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.147" unique-code="activity-policy" choice-value="activity-policy" description="activity policy">
+      <element description="activity policy">
+        <point>
+          <icon file="policy" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.155" unique-code="activity-preparedness" choice-value="activity-preparedness" description="activity preparedness">
+      <element description="activity preparedness">
+        <point>
+          <icon file="preparedness" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.163" unique-code="activity-public_information" choice-value="activity-public information" description="activity public information">
+      <element description="activity public information">
+        <point>
+          <icon file="public_information" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.171" unique-code="activity-reporting" choice-value="activity-reporting" description="activity reporting">
+      <element description="activity reporting">
+        <point>
+          <icon file="reporting" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.179" unique-code="activity-response" choice-value="activity-response" description="activity response">
+      <element description="activity response">
+        <point>
+          <icon file="response" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.187" unique-code="activity-scale_operation" choice-value="activity-scale operation" description="activity scale operation">
+      <element description="activity scale operation">
+        <point>
+          <icon file="scale_operation" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.195" unique-code="activity-services_tools" choice-value="activity-services tools" description="activity services tools">
+      <element description="activity services tools">
+        <point>
+          <icon file="services_tools" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.203" unique-code="activity-staff_management" choice-value="activity-staff management" description="activity staff management">
+      <element description="activity staff management">
+        <point>
+          <icon file="staff_management" anchor="NE" />
+        </point>
+      </element>
+    </node>
+    <node hierarchy-code="1.211" unique-code="activity-training" choice-value="activity-training" description="activity training">
+      <element description="activity training">
+        <point>
+          <icon file="training" anchor="NE" />
+        </point>
+      </element>
+    </node></choice>
+</elements>
