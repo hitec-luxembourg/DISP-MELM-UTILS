@@ -4,7 +4,7 @@
   <groupId>lu.hitec.pssu</groupId>
   <artifactId>DISP-MELM-UTILS</artifactId>
   <packaging>jar</packaging>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.0.0</version>
   <name>DISP-MELM-UTILS</name>
   <url>https://github.com/seustachi/DISP-MELM</url>
   <dependencies>

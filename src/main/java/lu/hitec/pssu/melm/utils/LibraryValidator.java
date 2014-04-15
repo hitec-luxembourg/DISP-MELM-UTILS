@@ -116,13 +116,13 @@ public final class LibraryValidator {
     }
   }
 
-  protected static File buildDirectoryForLibrary(@Nonnull final String baseDirectory, @Nonnull final String libraryName) {
+  static File buildDirectoryForLibrary(@Nonnull final String baseDirectory, @Nonnull final String libraryName) {
     assert baseDirectory != null : "Base directory is null";
     assert libraryName != null : "Library name is null";
     return new File(baseDirectory, libraryName);
   }
 
-  protected static String extractIconFilePathFromXML(@Nonnull final File xmlFile) throws ParserConfigurationException, SAXException,
+  static String extractIconFilePathFromXML(@Nonnull final File xmlFile) throws ParserConfigurationException, SAXException,
       IOException, XPathExpressionException {
     assert xmlFile != null : "Xml file is null";
     final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -135,7 +135,7 @@ public final class LibraryValidator {
     return result;
   }
 
-  protected static String extractLibraryTypePathFromXML(final File xmlFile) throws ParserConfigurationException, SAXException, IOException,
+  static String extractLibraryTypePathFromXML(final File xmlFile) throws ParserConfigurationException, SAXException, IOException,
       XPathExpressionException {
     final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
     final DocumentBuilder builder = factory.newDocumentBuilder();
@@ -147,7 +147,7 @@ public final class LibraryValidator {
     return result;
   }
 
-  protected static File getUnzippedDirectoryForLibraryVersion(@Nonnull final String baseDirectory, @Nonnull final String libraryName,
+  static File getUnzippedDirectoryForLibraryVersion(@Nonnull final String baseDirectory, @Nonnull final String libraryName,
       @Nonnull final String version) throws LibraryValidatorException {
     assert baseDirectory != null : "Base directory is null";
     assert libraryName != null : "Library name is null";
@@ -156,7 +156,7 @@ public final class LibraryValidator {
     return new File(libraryRoot, libraryName + "-" + version);
   }
 
-  protected static void validateNameAndVersion(@Nonnull final File xmlFile, @Nonnull final String libraryName, @Nonnull final String version)
+  static void validateNameAndVersion(@Nonnull final File xmlFile, @Nonnull final String libraryName, @Nonnull final String version)
       throws Exception {
     assert xmlFile != null : "Xml file is null";
     assert libraryName != null : "Library name is null";
@@ -197,7 +197,7 @@ public final class LibraryValidator {
     saxParser.parse(xmlFile, handler);
   }
 
-  protected static void validateXMLwithXSD(@Nonnull final File xmlFile, @Nonnull final File schemaFile) throws LibraryValidatorException {
+  static void validateXMLwithXSD(@Nonnull final File xmlFile, @Nonnull final File schemaFile) throws LibraryValidatorException {
     assert xmlFile != null : "XML file is null";
     assert schemaFile != null : "Schema file is null";
     final String schemaLang = "http://www.w3.org/2001/XMLSchema";

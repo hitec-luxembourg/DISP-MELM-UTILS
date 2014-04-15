@@ -17,43 +17,25 @@ import lu.hitec.pssu.melm.exceptions.LibraryValidatorException;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.xml.sax.SAXException;
 
 public class LibraryValidatorTest {
-  private static final Logger LOGGER = LoggerFactory.getLogger(LibraryValidatorTest.class);
 
   @Before
   public void setUp() throws Exception {
   }
-  
-  private void deleteAllFiles(final File directory) {
-    for (final File file : directory.listFiles()) {
-      if (file.isDirectory()) {
-        deleteAllFiles(file);
-      }
-      if (!file.delete()) {
-        LOGGER.debug(String.format("Could not delete file : %s", file.getAbsolutePath()));
-      }
-    }
-    if (!directory.delete()) {
-      LOGGER.debug(String.format("Could not delete directory : %s", directory.getAbsolutePath()));
-    }
-  }
 
   @After
   public void tearDown() throws Exception {
-    final String baseDirectory = this.getClass().getResource("/sample/libraries").getPath();
-    final File directory = new File(baseDirectory);
-    deleteAllFiles(directory);
   }
 
   @Test
   public void testBuildDirectoryForLibraryNOK() {
     final String baseDirectory = this.getClass().getResource("/sample/libraries").getPath();
     final File directoryForLibrary = LibraryValidator.buildDirectoryForLibrary(baseDirectory, "emergency.fr");
-    assertNull(directoryForLibrary);
+    assertNotNull(directoryForLibrary);
+    assertTrue(directoryForLibrary.exists());
+    directoryForLibrary.delete();
   }
 
   @Test
@@ -182,7 +164,6 @@ public class LibraryValidatorTest {
     final File xml = new File(this.getClass().getResource("/sample/xml/1-EMERGENCYLU_MISSING_DESCRIPTION.xml").toURI());
     final File xsd = new File(this.getClass().getResource(LibraryValidator.XSD_PATH).toURI());
     LibraryValidator.validateXMLwithXSD(xml, xsd);
-    // everything is fine, description is not mandatory anymore
   }
 
   @Test(expected = LibraryValidatorException.class)
