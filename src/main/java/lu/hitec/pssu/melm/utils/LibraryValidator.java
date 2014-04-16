@@ -60,7 +60,7 @@ public final class LibraryValidator {
     return null;
   }
 
-  public static void validateLibrary(@Nonnull final String xsdPath, @Nonnull final String baseDirectory, @Nonnull final String libraryName,
+  public static File validateLibrary(@Nonnull final String xsdPath, @Nonnull final String baseDirectory, @Nonnull final String libraryName,
       @Nonnull final String version) throws LibraryValidatorException {
     assert xsdPath != null : "XSD path is null";
     assert baseDirectory != null : "Base directory is null";
@@ -111,6 +111,7 @@ public final class LibraryValidator {
         throw new LibraryValidatorException(String.format("Icon file not found with local path : %s", iconFilePath));
       }
       validateNameAndVersion(xmlFile, libraryName, version);
+      return xmlFile;
     } catch (final Exception e) {
       throw new LibraryValidatorException(e.getMessage(), e);
     }
@@ -122,8 +123,8 @@ public final class LibraryValidator {
     return new File(baseDirectory, libraryName);
   }
 
-  static String extractIconFilePathFromXML(@Nonnull final File xmlFile) throws ParserConfigurationException, SAXException,
-      IOException, XPathExpressionException {
+  static String extractIconFilePathFromXML(@Nonnull final File xmlFile) throws ParserConfigurationException, SAXException, IOException,
+      XPathExpressionException {
     assert xmlFile != null : "Xml file is null";
     final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
     final DocumentBuilder builder = factory.newDocumentBuilder();
