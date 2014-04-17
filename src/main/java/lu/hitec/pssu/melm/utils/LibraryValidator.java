@@ -44,9 +44,9 @@ public final class LibraryValidator {
     assert libraryName != null : "Library name is null";
     assert version != null : "Version is null";
     final File libDir = buildDirectoryForLibrary(baseDirectory, libraryName);
-    if (libDir.isDirectory() || libDir.mkdir()) {
+    if (libDir.isDirectory() || libDir.mkdirs()) {
       final File versionDir = new File(libDir, version);
-      if (versionDir.isDirectory() || versionDir.mkdir()) {
+      if (versionDir.isDirectory() || versionDir.mkdirs()) {
         LOGGER.debug(String.format("Directory for libraryName : %s, version : %s is : %s", libraryName, version,
             versionDir.getAbsolutePath()));
         return versionDir;
