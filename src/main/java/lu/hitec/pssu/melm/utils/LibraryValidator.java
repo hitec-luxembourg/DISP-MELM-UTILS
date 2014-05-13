@@ -60,6 +60,23 @@ public final class LibraryValidator {
     return null;
   }
 
+  public static File validateLibrary(@Nonnull final String xsdPath, @Nonnull final File xmlFile, @Nonnull final String libraryName,
+      @Nonnull final String version) throws LibraryValidatorException {
+    assert xsdPath != null : "XSD path is null";
+    assert xmlFile != null : "xmlFile is null";
+    assert libraryName != null : "Library name is null";
+    assert version != null : "Version is null";
+
+    try {
+      final File xsd = new File(xsdPath);
+      validateXMLwithXSD(xmlFile, xsd);
+      validateNameAndVersion(xmlFile, libraryName, version);
+      return xmlFile;
+    } catch (final Exception e) {
+      throw new LibraryValidatorException(e.getMessage(), e);
+    }
+  }
+
   public static File validateLibrary(@Nonnull final String xsdPath, @Nonnull final String baseDirectory, @Nonnull final String libraryName,
       @Nonnull final String version) throws LibraryValidatorException {
     assert xsdPath != null : "XSD path is null";
@@ -105,11 +122,6 @@ public final class LibraryValidator {
     try {
       final File xsd = new File(xsdPath);
       validateXMLwithXSD(xmlFile, xsd);
-      final String iconFilePath = extractIconFilePathFromXML(xmlFile);
-      final File iconFile = new File(unzippedFolder, iconFilePath);
-      if (!iconFile.exists()) {
-        throw new LibraryValidatorException(String.format("Icon file not found with local path : %s", iconFilePath));
-      }
       validateNameAndVersion(xmlFile, libraryName, version);
       return xmlFile;
     } catch (final Exception e) {
@@ -121,19 +133,6 @@ public final class LibraryValidator {
     assert baseDirectory != null : "Base directory is null";
     assert libraryName != null : "Library name is null";
     return new File(baseDirectory, libraryName);
-  }
-
-  static String extractIconFilePathFromXML(@Nonnull final File xmlFile) throws ParserConfigurationException, SAXException, IOException,
-      XPathExpressionException {
-    assert xmlFile != null : "Xml file is null";
-    final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-    final DocumentBuilder builder = factory.newDocumentBuilder();
-    final Document doc = builder.parse(xmlFile);
-    final XPathFactory xPathfactory = XPathFactory.newInstance();
-    final XPath xpath = xPathfactory.newXPath();
-    final XPathExpression expr = xpath.compile("/elements/description/library-icon/@file");
-    final String result = (String) expr.evaluate(doc, XPathConstants.STRING);
-    return result;
   }
 
   static String extractLibraryTypePathFromXML(final File xmlFile) throws ParserConfigurationException, SAXException, IOException,

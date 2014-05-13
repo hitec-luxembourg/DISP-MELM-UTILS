@@ -1,6 +1,5 @@
 package lu.hitec.pssu.melm.utils;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
@@ -9,15 +8,11 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.xpath.XPathExpressionException;
-
 import lu.hitec.pssu.melm.exceptions.LibraryValidatorException;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.xml.sax.SAXException;
 
 public class LibraryValidatorTest {
 
@@ -58,16 +53,6 @@ public class LibraryValidatorTest {
     final File directoryForLibrary = LibraryValidator.buildDirectoryForLibraryVersion(baseDirectory, "emergency.lu", "1.1");
     assertNotNull(directoryForLibrary);
     assertTrue(directoryForLibrary.exists());
-  }
-
-  @Test
-  public void testExtractIconFilePathFromXML() throws IOException, XPathExpressionException, ParserConfigurationException, SAXException,
-      URISyntaxException {
-    final File xmlFile = new File(this.getClass().getResource("/sample/xml/1-EMERGENCYLU_HITEC_PSSU_V1.1.xml").toURI());
-    final String iconFilePath = LibraryValidator.extractIconFilePathFromXML(xmlFile);
-    assertEquals("icon.png", iconFilePath);
-    final String libraryType = LibraryValidator.extractLibraryTypePathFromXML(xmlFile);
-    assertEquals("points", libraryType);
   }
 
   public void testGetUnzippedDirectoryForLibraryVersionNOK() throws LibraryValidatorException {

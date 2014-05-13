@@ -110,7 +110,7 @@
         <element name="choice" type="tns:choiceType" />
       </choice>
     </sequence>
-    <attribute name="hierarchy-code" use="required" type="tns:hierarchyType">
+    <attribute name="hierarchy-code" use="optional" type="tns:hierarchyType">
       <annotation>
         <documentation>
           Definition of the hierarchy code for the node. Not required to be unique.
